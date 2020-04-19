@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PROJECT:ROCK_PAPER_SCISSORS</title>
+    </head>
+    <body>
+        <script>
+
+            // function to get computer input
+
+            function getComputerSelection(){
+                switch(Math.floor(Math.random()*3)){
+                    case 0:
+                        return 'rock';
+                        break;
+                    case 1:
+                        return 'scissors'
+                        break;
+                    case 2:
+                        return 'paper'
+                        break;
+                };
+            }
+                // Fuction to determine the winner from the round played
+            function playRound(playerSelection, computerSelection){
+
+                if (playerSelection === computerSelection) {
+                    return 'It\'s a tie!';
+                }
+                else if(playerSelection === 'rock'){
+                    if (computerSelection === 'paper') {
+                        return 'You lose! Paper beats rock';
+                    }else {
+                        return 'You win'
+                    }
+                } else if (playerSelection === 'paper') {
+                    if (computerSelection === 'scissors') {
+                        return 'Computer wins!';
+                    } else {
+                        return 'You win';
+                    }
+                } else if(playerSelection === 'scissors'){
+                    if (computerSelection === 'rock') {
+                        return 'Computer wins!';
+                    }else {
+                        return 'You win!';
+                    }
+                }else if (playerSelection === 'bomb') {
+                    return 'You win!';
+                }
+
+            }
+                // Game function takes input from user
+            function game(){
+                var playerSelection = prompt('Enter User Input');
+                var computerSelection = getComputerSelection();
+                console.log(playRound(playerSelection,computerSelection));
+            };
+            
+        </script>
+    </body>
+</html>
